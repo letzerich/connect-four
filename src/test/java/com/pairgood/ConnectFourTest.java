@@ -70,7 +70,7 @@ public class ConnectFourTest {
     }
 
     @Test
-    public void check_ForFourInRow(){
+    public void check_ForFourInVerticalRow(){
         ConnectFour game = new ConnectFour();
         String playerOne = "Y";
         int column = 2;
@@ -92,6 +92,33 @@ public class ConnectFourTest {
         game.place(playerOne, 6);
         game.place(playerOne, 6);
         game.place(playerOne, 6);
+
+        //Then
+        assertEquals(expectedAfter, game.check());
+
+    }
+
+    @Test
+    public void check_ForFourInHorizontalRow(){
+        ConnectFour game = new ConnectFour();
+        String playerOne = "Y";
+        int column = 2;
+
+
+        String expectedAfter =
+                "OOOOOOO\n" +
+                "OOOOOOO\n" +
+                "OOOOOOO\n" +
+                "OOOOOOO\n" +
+                "OOOOOOO\n" +
+                "OYYYYOO\n";
+
+        //When
+
+        game.place(playerOne, 2);
+        game.place(playerOne, 3);
+        game.place(playerOne, 4);
+        game.place(playerOne, 5);
 
         //Then
         assertEquals(expectedAfter, game.check());
